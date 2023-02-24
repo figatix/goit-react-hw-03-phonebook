@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { StyledForm, StyledInput, StyledInputTitle, StyledLabel } from "./Form.styled";
-import { StyledAddBtn } from "./ContactItem.styled";
+import { StyledAddBtn } from "../ContactItem/ContactItem.styled";
 
 class ContactForm extends Component {
 

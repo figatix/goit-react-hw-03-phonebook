@@ -1,8 +1,8 @@
-import React, { Component } from "react";
 import { nanoid } from "nanoid";
-import { ContactForm } from "./Form";
-import { Filter } from "./Filter";
-import { ContactList } from "./ContactList";
+import { Component } from "react";
+import { ContactList } from "../ContactList/ContactList";
+import { Filter } from "../Filter/Filter";
+import { ContactForm } from "../Form/Form";
 
 import { StyledMainTitle, StyledTitle, Wrapper } from "./App.styled";
 
