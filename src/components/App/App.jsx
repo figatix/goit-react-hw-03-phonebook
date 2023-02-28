@@ -6,12 +6,23 @@ import { ContactForm } from "../Form/Form";
 
 import { StyledMainTitle, StyledTitle, Wrapper } from "./App.styled";
 
-
+const STORAGE_KEY = 'contacts';
 
 class App extends Component {
   state = {
     filter: '',
-    contacts: JSON.parse(localStorage.getItem('contacts')) ?? []
+    contacts: []
+  }
+
+  componentDidMount() {
+    try {
+      const contacts = JSON.parse(localStorage.getItem(STORAGE_KEY))
+      if (contacts) {
+        this.setState({ contacts });
+      }
+    } catch (error) {
+      console.error('Get state error: ', error.message);
+    }
   }
 
   componentDidUpdate(_, prevState) {
@@ -36,9 +47,9 @@ class App extends Component {
       ...newContact
     }
 
-    this.setState({
-      contacts: [finallyNewContact, ...contacts]
-    })
+    this.setState((prevState) => ({
+      contacts: [finallyNewContact, ...prevState.contacts]
+    }))
 
     return true
   }
